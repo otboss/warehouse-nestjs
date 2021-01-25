@@ -1,0 +1,53 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Mutation {
+  saveItem(warehouseItem: WarehouseItemInput!): WarehouseItemModel!
+}
+
+type OwnerModel {
+  address: String!
+  firstName: String!
+  id: ID!
+  isMale: Boolean!
+  lastName: String!
+  middleName: String!
+  passportNumber: String!
+  timestamp: String!
+}
+
+type Query {
+  getItem(itemId: String!): WarehouseItemModel!
+  getItems(filter: String = "", limit: Float = 50, offset: Float = 0): [WarehouseItemModel!]!
+  getWarehouses(filter: String = "", limit: Float = 50, offset: Float = 0): [WarehouseModel!]!
+}
+
+input WarehouseItemInput {
+  forAuction: Boolean
+  forSale: Boolean
+  itemName: String!
+  price: Float
+}
+
+type WarehouseItemModel {
+  forAuction: Boolean!
+  forSale: Boolean!
+  id: ID!
+  itemName: String!
+  owner: OwnerModel!
+  price: Float!
+  timestmap: [String!]!
+}
+
+type WarehouseLotModel {
+  id: ID!
+  size: Float!
+  warehouseId: String!
+}
+
+type WarehouseModel {
+  address: String!
+  id: ID!
+  lots: [WarehouseLotModel!]!
+}
